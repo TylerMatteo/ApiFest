@@ -1,8 +1,19 @@
 page-vw-login {
 
-    .btn-vw-login {
+    ion-content div{
       background-color: $vw-orange;
       color: #fff;
+    }
+
+    form {
+      ion-label{
+        color: #fff;
+
+      }
+    }
+    .btn-vw-login {
+      background-color: #fff;
+      color: #000;
     }
 
     h1{
