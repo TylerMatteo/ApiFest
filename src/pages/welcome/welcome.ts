@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 import { User } from '../../providers/providers';
 
@@ -17,10 +18,47 @@ import { User } from '../../providers/providers';
 export class WelcomePage {
 
   constructor(public navCtrl: NavController,
-    public user: User) { }
+    public user: User,public alertCtrl: AlertController) {
+
+      this.touchEnable = false;
+     }
 
   name :string;
   email: string;
+  touchEnable : boolean;
+  touchEnablePrompt : any;
+  touchNotEnablePrompt : any;
+
+  touchLogin() {
+     this.touchEnablePrompt = this.alertCtrl.create({
+        title: 'Touch Id Login',
+        subTitle: 'Use Touch ID instead of your password to sign on.',
+        buttons: ['Dismiss']
+      });
+
+      this.touchNotEnablePrompt = this.alertCtrl.create({
+        title: 'Touch Id Login',
+        subTitle: 'Touch ID has not been set up on this device.',
+
+        buttons: [
+        {
+          text: 'Use Touch ID',
+          handler: () => {
+            this.touchEnable = true;
+          }
+        },
+        {
+          text: 'No thanks',
+          role : 'cancel'
+        }]
+      });
+    if( this.touchEnable ) {
+      this.touchEnablePrompt.present();
+    } else {
+      this.touchNotEnablePrompt.present();
+
+    }
+  }
 
   login() {
     this.navCtrl.push('LoginPage');
