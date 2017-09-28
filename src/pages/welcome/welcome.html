@@ -1,0 +1,50 @@
+<ion-content scroll="false">
+
+  <!-- <img src="https://www.w3schools.com/w3images/team2.jpg" alt="John" style="width:100%"> -->
+  <img class="img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" >
+
+  <div padding>
+    <form (submit)="review()" >
+    <ion-list>
+
+      <ion-item>
+        <ion-label fixed>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input type="text" [(ngModel)]="email"  name="email"></ion-input>
+      </ion-item>
+       <ion-item>
+        <ion-label fixed>Goals</ion-label>
+         <ion-select style="max-width:100%;width: 100%"block>
+          <ion-option value="f">Goal #1</ion-option>
+          <ion-option value="m">Goal #2</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                <button ion-button color="primary" block>A</button>
+            </ion-col>
+            <ion-col>
+                <button ion-button color="primary" block>B</button>
+            </ion-col>
+            <ion-col>
+                <button ion-button color="primary" block>VW</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+    </ion-list>
+    <ion-footer color="primary">
+      <button ion-button color="primary" block>Sign Up</button>
+    </ion-footer>
+
+</form>
+  </div>
+</ion-content>
