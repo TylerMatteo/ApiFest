@@ -6,22 +6,25 @@
     <ion-list>
 
       <ion-item>
-        <ion-label fixed>Name</ion-label>
+        <ion-label fixed>Email</ion-label>
           <ion-input  type="text" [(ngModel)]="name" name="name"> </ion-input>
-          <ion-icon (click)="touchLogin()" style="color:#999;cursor: pointer" name="finger-print" item-right></ion-icon>
+          <ion-icon (click)="touchLogin()" style="z-index:9999;color:#999;cursor: pointer" name="finger-print" item-right></ion-icon>
       </ion-item>
 
       <ion-item>
-        <ion-label fixed>Email</ion-label>
+        <ion-label fixed>Password</ion-label>
         <ion-input type="text" [(ngModel)]="email"  name="email"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-grid>
           <ion-row>
-            <ion-col col-9>
+            <ion-col>
                 <button ion-button color="primary" (click)="login()" block>Sign In...</button>
             </ion-col>
+
+          </ion-row>
+          <ion-row>
             <ion-col>
                 <button ion-button style="background: white" block><img style="height: 89%;" src="../assets/img/google.png" /></button>
             </ion-col>
@@ -40,6 +43,7 @@
           </ion-row>
         </ion-grid>
       </ion-item>
+      {{stockData}}
 
 
     </ion-list>

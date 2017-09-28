@@ -29,8 +29,10 @@ export class Api {
       // a search field set in options.
       options.search = !options.search && p || options.search;
     }
-
-    return this.http.get(this.url + '/' + endpoint, options);
+    if( endpoint.indexOf('http') == -1) {
+      endpoint = this.url + '/' + endpoint
+    }
+    return this.http.get(endpoint, options);
   }
 
   post(endpoint: string, body: any, options?: RequestOptions) {

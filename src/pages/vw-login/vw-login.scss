@@ -1,10 +1,14 @@
 page-vw-login {
 
-    ion-content div{
+    ion-content > div{
+      // background: url('../assets/img/vw.png') no-repeat transparent;
       background-color: $vw-orange;
       color: #fff;
     }
 
+ion-content  div{
+      color: #fff;
+    }
 
     .btn-vw-login {
       background-color: #fff;

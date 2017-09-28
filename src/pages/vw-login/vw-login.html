@@ -1,25 +1,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Login with your Virtual Wallet ID:</ion-title>
+    <ion-title>Login with Virtual Wallet</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-
+<img src='../assets/img/vw.png' padding style="height: 88px;float: left;padding-bottom: 0;padding-right: 8px;" >
   <p padding>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis velit lorem. Proin elit turpis, malesuada id diam ut, consequat eleifend massa. Duis sit amet congue felis, quis vulputate velit. Etiam sed tristique enim. Pellentesque ut dictum dui, quis porta nibh. Nulla vel nibh dapibus ex ultricies accumsan. Integer convallis ex ac tincidunt fermentum. Morbi at lectus eget erat ultricies elementum et in leo. Sed a enim et tortor tincidunt commodo id eget metus. Maecenas a tempor ante. Duis eu velit id nisi fringilla semper quis in erat. Vestibulum nec quam enim. Fusce feugiat nulla id est imperdiet volutpat.</p>
 
   <form (submit)="doVWLogin()">
     <ion-list>
       <ion-item>
-        <ion-label fixed>{{ 'NAME' | translate }}</ion-label>
+        <ion-label fixed>{{ 'Username' | translate }}</ion-label>
         <ion-input type="text" [(ngModel)]="account.username" name="name"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
+        <ion-label fixed>{{ 'Password' | translate }}</ion-label>
         <ion-input type="password" [(ngModel)]="account.password" name="email"></ion-input>
       </ion-item>
 
