@@ -1,16 +1,17 @@
 import 'rxjs/add/operator/map';
 
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, URLSearchParams } from '@angular/http';
+import { Http, RequestOptions, URLSearchParams, Headers } from '@angular/http';
 
 /**
  * Api is a generic REST Api handler. Set your API url first.
  */
 @Injectable()
 export class Api {
-  url: string = 'https://example.com/api/v1';
+  url: string;
 
   constructor(public http: Http) {
+    this.url = "https://nginx0.pncapix.com";
   }
 
   get(endpoint: string, params?: any, options?: RequestOptions) {
@@ -33,6 +34,13 @@ export class Api {
   }
 
   post(endpoint: string, body: any, options?: RequestOptions) {
+    let headers = new Headers();
+    headers.append('Content-Type','application/json')
+    headers.append('Accept', 'application/xml')
+    headers.append('Authorization', 'Bearer ced5e414-72b2-306a-aa99-0acc372b9fd4');
+
+    options = options ? options : new RequestOptions({headers: headers});
+    console.log(options);
     return this.http.post(this.url + '/' + endpoint, body, options);
   }
 

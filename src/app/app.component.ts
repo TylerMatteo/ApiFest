@@ -39,6 +39,7 @@ export class MyApp {
     { title: 'Cards', component: 'CardsPage' },
     { title: 'Content', component: 'ContentPage' },
     { title: 'Login', component: 'LoginPage' },
+    { title: 'VWLogin', component: 'VWLoginPage' },
      { title: 'ReviewPage', component: 'ReviewPage' },
      { title: 'SchoolPage', component: 'SchoolPage' },
      { title: 'BankPage', component: 'BankPage' },
