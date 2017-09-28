@@ -5,15 +5,15 @@ page-vw-login {
       color: #fff;
     }
 
-    form {
-      ion-label{
-        color: #fff;
 
-      }
-    }
     .btn-vw-login {
       background-color: #fff;
       color: #000;
+    }
+
+    ion-item {
+      background-color: $vw-orange !important;
+
     }
 
     h1{

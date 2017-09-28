@@ -61,11 +61,11 @@ export class WelcomePage {
   }
 
   login() {
-    this.navCtrl.push('LoginPage');
+    this.navCtrl.push('StartGamePage');
   }
 
   vw() {
-
+    this.navCtrl.push('VWLoginPage');
   }
 
   createAccount() {

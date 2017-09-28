@@ -8,7 +8,8 @@
 
 
 <ion-content>
-  <form (submit)="doSignup()">
+  <div padding>
+    <form  >
     <ion-list>
 
       <ion-item>
@@ -31,8 +32,13 @@
       -->
 
       <ion-item>
-        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password"  [(ngModel)]="account.password" name="password"></ion-input>
+      </ion-item>
+
+       <ion-item>
+        <ion-label fixed>Confirm</ion-label>
+        <ion-input type="password" [(ngModel)]="account.confirmPassword" name="password"></ion-input>
       </ion-item>
 
       <div padding>
@@ -41,4 +47,5 @@
 
     </ion-list>
   </form>
+  </div>
 </ion-content>
