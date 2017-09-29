@@ -35,6 +35,7 @@ export class User {
   portfolio : any;
   portfolioDiff : number = 0;
   portfolioPoints : any = {};
+  artical : any;
 
   constructor(public http: Http, public api: Api, public stocks: Stocks) {
     this._holder = {};

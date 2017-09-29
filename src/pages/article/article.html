@@ -8,21 +8,16 @@
 
 <ion-content scroll="false">
 
-    <ion-list>
-
-      <ion-item *ngFor="let n of news" >
-        <div class="card" (click)="show(n)">
+ <ion-item *ngFor="let n of link" >
+        <div class="card" >
 
           <div  class="img">
           </div>
           <div padding class="profile">
             <h1>{{n[0]}}</h1>
-            <p>We found {{n[1]}} articales we think you should read.</p>
+            <p>{{n[1]}}</p>
           </div>
         </div>
       </ion-item>
-
-
-    </ion-list>
 
 </ion-content>

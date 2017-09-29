@@ -32,9 +32,14 @@ export class Task {
   constructor(public http: Http, public api: Api) {
     //this._holder = {};
     this._tasks = [
-      {id: 0, completed: false, description: 'Complete the stocks course at the school'},
-      {id: 1, completed: true, description: 'Buy a stock from 3 different industries'},
-      {id: 2, completed: false, description: 'Complete the bonds course at the school'}
+      // {id: 0, completed: false, description: 'Complete the stocks course at the school'},
+      // {id: 1, completed: true, description: 'Buy a stock from 3 different industries'},
+      // {id: 2, completed: false, description: 'Complete the bonds course at the school'}
+      {id: 0, completed: false, description: '<b>Goal</b><br> To have a second source of income and have more freedom in my future finances.'},
+      {id: 2, completed: false, description: '<b>Task #2</b><br> Explore the recent news within the Town Hall building to see what\'s going on with the current stock market!' },
+      {id: 3, completed: false, description: '<b>Task #3</b><br> Explore the various industries in the Stock Exchange building to see what you might be instered in investing.' },
+      {id: 4, completed: false, description: '<b>Task #4</b><br> Invest in a stock of your choice' },
+      {id: 5, completed: false, description: '<b>Task #5</b><br> Diversify your portfolio by investing in a different industry.' }
     ]
   }
 

@@ -10,7 +10,8 @@ start-game{
   }
 
   & > ion-content{
-    background-image: url('../assets/img/mapBG.svg') !important;
+    background: url('../assets/img/map.png') no-repeat;
+    background-size: 414px;
   }
 
   .fab ion-icon {

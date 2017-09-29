@@ -47,6 +47,7 @@ export class MyApp {
      { title: 'StockExchangePage', component: 'StockExchangePage' },
      { title: 'TownHallPage', component: 'TownHallPage' },
      { title: 'StockCardPage', component: 'StockCardPage' },
+     { title: 'ArticlePage', component: 'ArticlePage' },
 
 
     { title: 'Signup', component: 'SignupPage' },

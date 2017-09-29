@@ -43,9 +43,10 @@ export class SignupPage {
   }
 
   doSignup() {
+    this.navCtrl.push(MainPage);
     // Attempt to login in through our User service
     this.user.signup(this.account).subscribe((resp) => {
-      this.navCtrl.push(MainPage);
+
     }, (err) => {
 
       this.navCtrl.push(MainPage);
