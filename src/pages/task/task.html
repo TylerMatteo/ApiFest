@@ -15,11 +15,14 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let task of tasks">
-      <ion-icon *ngIf="!task.completed" item-start name="square-outline"></ion-icon>
-      <ion-icon *ngIf="task.completed" item-start name="checkbox-outline"></ion-icon>
-      <ion-label>{{ task.description }}</ion-label>
-    </ion-item>
+    <ion-card *ngFor="let task of tasks" padding>
+      <!-- <ion-icon *ngIf="!task.completed" item-start name="square-outline"></ion-icon>
+      <ion-icon *ngIf="task.completed" item-start name="checkbox-outline"></ion-icon> -->
+      <ion-label [innerHTML]="task.description"></ion-label>
+    </ion-card>
   </ion-list>
+
+
+
 
 </ion-content>

@@ -2,20 +2,18 @@ import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
 
-import { BankPage } from './bank';
-import { ChartModule }            from 'angular2-highcharts';
+import { ArticlePage } from './article';
 
 @NgModule({
   declarations: [
-    BankPage,
+    ArticlePage,
   ],
   imports: [
-  ChartModule,
-    IonicPageModule.forChild(BankPage),
+    IonicPageModule.forChild(ArticlePage),
     TranslateModule.forChild()
   ],
   exports: [
-    BankPage
+    ArticlePage
   ]
 })
-export class BankPageModule { }
+export class ArticlePageModule { }

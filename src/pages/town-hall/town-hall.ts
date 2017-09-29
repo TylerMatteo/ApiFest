@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
-import { User } from '../../providers/providers';
+import { User, Stocks } from '../../providers/providers';
 /**
  * The Welcome Page is a splash page that quickly describes the app,
  * and then directs the user to create an account or log in.
@@ -9,19 +9,39 @@ import { User } from '../../providers/providers';
 */
 @IonicPage({name: 'town-hall'})
 @Component({
-  selector: 'page-town-hall',
+  selector: 'page-town-hall-1',
   templateUrl: 'town-hall.html'
 })
 export class TownHallPage {
 
   name :string;
   email :string;
+  news : any = [];
 
-  constructor(public navCtrl: NavController,public user: User,) { }
+  constructor(public navCtrl: NavController,public user: User, public stocks : Stocks) {
+
+    let indxs = Object.keys(this.stocks.stocks);
+    console.log( indxs)
+    for( let i = 0; i < indxs.length; i++ ) {
+      let idx = indxs[i];
+      this.news.push( [idx, this.getRand()] );
+    }
+
+   }
+
+   getRand() {
+     return Math.floor(Math.random() * 11) * 1;
+   }
 
   ionViewDidLoad() {
     this.name = this.user._holder.name;
     this.email = this.user._holder.email;
+  }
+
+  show(n){
+    console.log('show')
+    this.user.artical = n;
+    this.navCtrl.push('town-hall-2');
   }
 
   play() {

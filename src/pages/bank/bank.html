@@ -1,66 +1,99 @@
-
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      <ion-navbar>
-    <ion-title>
-      <!-- <button ion-button icon-left clear small><ion-icon name="arrow-back"></ion-icon></button> -->
 
-       <ion-icon style="float:right" name="ios-home-outline"></ion-icon>
-       <span style="float:right;padding-right: 40%;">Bank</span>
-    </ion-title>
+  <ion-navbar>
+    <ion-title>Bank</ion-title>
   </ion-navbar>
-    </ion-title>
-  </ion-navbar>
+
 </ion-header>
 
+
 <ion-content scroll="false">
+ <ion-slides>
+  <ion-slide>
+    <h1 padding-left text-left>Portfolio: {{user.portfolio | currency : "USD" : 3}} </h1>
+    <!-- <span block *ngIf="user.portfolioDiff < 0" class="red">({{ user.portfolioDiff}}%)</span>
+    <span block *ngIf="user.portfolioDiff > -1" class="green">({{ user.portfolioDiff}}%)</span> -->
 
-  <div class="card" margin >
-      <ion-icon padding style="font-size: 3em;" name="logo-usd"></ion-icon>
-      <ion-icon padding style="font-size: 3em;" name="logo-usd"></ion-icon>
-      <ion-icon padding style="font-size: 3em;" name="logo-usd"></ion-icon>
-      <ion-icon padding style="font-size: 3em;" name="logo-usd"></ion-icon>
-      <ion-icon padding style="font-size: 3em;" name="logo-usd"></ion-icon>
-      <ion-icon padding style="font-size: 3em;" name="logo-usd"></ion-icon>
-      <ion-icon padding style="font-size: 3em;" name="logo-usd"></ion-icon>
-      <ion-icon padding style="font-size: 3em;" name="logo-usd"></ion-icon>
-  </div>
+    <h1 padding-left text-left>Buying Power: {{user.account | currency : "USD" : 3}}</h1>
+    <chart  [options]="options"></chart>
+     <ion-grid>
+          <ion-row>
+            <ion-col>
+        <a>1 yr</a>
+            </ion-col>
+          <ion-col>
+        <a>1 mo</a>
+            </ion-col>
+          <ion-col>
+        <a>1 wk</a>
+            </ion-col>
+          <ion-col>
+        <a>1 hr</a>
+            </ion-col>
+          <ion-col>
+        <a class="active">min</a>
+            </ion-col>
 
-  <h1 margin>Rewards</h1>
-
-    <ion-grid margin>
-      <ion-row>
-        <ion-col>
-          <ion-icon padding style="font-size: 3em;" name="ios-cash-outline"></ion-icon><br>
-          <span style="padding-left: 8px;">$100.00</span>
-        </ion-col>
-        <ion-col>
-           <ion-icon padding style="font-size: 3.3em;" name="ios-archive-outline"></ion-icon><br>
-          <span style="padding-left: 19px;">......</span>
-        </ion-col>
-        <ion-col>
-          <ion-icon padding style="font-size: 3em;" name="ios-cash-outline"></ion-icon><br>
-          <span style="padding-left: 8px;">$100.00</span>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+        </ion-row>
+      </ion-grid>
+  </ion-slide>
+  <ion-slide>
+    <h1 padding >Portfolio: {{user.portfolio | currency : "USD" : 3}} </h1>
 
 
 
-  <h1 margin>Achievments</h1>
-  <ion-grid margin>
-      <ion-row>
-        <ion-col>
-            <ion-icon padding style="font-size: 3em;padding-left: 27px;" name="ios-ribbon-outline"></ion-icon><br>
-          <span >10 purchases</span>
-        </ion-col>
-        <ion-col>
-           <ion-icon padding style="font-size: 3em;padding-left: 27px;" name="ios-ribbon-outline"></ion-icon><br>
-          <span >Save $200.00</span>
-        </ion-col>
-        <ion-col></ion-col>
-      </ion-row>
-    </ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              Stock
+            </ion-col>
+            <ion-col>
+              Date
+            </ion-col>
+            <ion-col>
+              Value
+            </ion-col>
+            <ion-col>
+              Buy Power
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let trans of stocks.transactions ">
+            <ion-col>
+        {{trans.name}}
+            </ion-col>
+          <ion-col>
+        {{format(trans.time)}}
+            </ion-col>
+          <ion-col>
+        ${{trans.val}}
+            </ion-col>
+          <ion-col>
+        ${{trans.account}}
+            </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+  </ion-slide>
+  <ion-slide>
+    <h1 padding >Achievements</h1>
+    <ion-grid>
+          <ion-row>
+            <ion-col>
+                <ion-icon style="font-size:2em" name="ribbon"></ion-icon><br>
+                Buy 10 stocks
+            </ion-col>
+            <ion-col>
+                <ion-icon style="font-size:2em" name="ribbon"></ion-icon><br>
+                Complete a whole course
+            </ion-col>
+            <ion-col>
+                <ion-icon style="font-size:2em" name="ribbon"></ion-icon><br>
+                Become a billionaire
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  </ion-slide>
+</ion-slides>
 
 </ion-content>

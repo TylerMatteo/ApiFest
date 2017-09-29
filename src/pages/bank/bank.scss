@@ -43,6 +43,17 @@ page-review {
       background-color: rgb(220, 220, 220);
     }
   }
+   .active {
+    color : $vw-orange;
+    border-bottom: $vw-orange solid 1px;
+  }
+
+  .red {
+    color:red;
+  }
+  .green {
+    color: green;
+  }
   // .toolbar-background{
   //   background-color: #488aff;
   // }
