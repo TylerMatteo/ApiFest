@@ -40,6 +40,7 @@ export class MyApp {
     { title: 'Content', component: 'ContentPage' },
     { title: 'Login', component: 'LoginPage' },
     { title: 'VWLogin', component: 'VWLoginPage' },
+    { title: 'Tasks', component: 'TasksPage'},
      { title: 'ReviewPage', component: 'ReviewPage' },
      { title: 'SchoolPage', component: 'SchoolPage' },
      { title: 'BankPage', component: 'BankPage' },

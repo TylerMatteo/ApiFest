@@ -14,7 +14,7 @@ import {JsonpModule} from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';
-import { User, Stocks } from '../providers/providers';
+import { User, Stocks, Task } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 
@@ -67,6 +67,7 @@ export function provideSettings(storage: Storage) {
     Api,
     Items,
     User,
+    Task,
     Stocks,
     Camera,
     GoogleMaps,

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 //import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { trigger, state, style, transition, animate } from '@angular/animations'
+import { Task } from '../../providers/task/task';
 import SVG from 'svg.js';
 
 @IonicPage()
@@ -30,13 +31,19 @@ export class StartGamePage {
   roadY:number[];
   roadX:number[];
   visibleState:string;
+  taskCount:number;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController, public task: Task) {
     this.width = 3300;
     this.height = 3000;
     this.roadY = [505];
     this.roadX = [707];
     this.visibleState = 'normal';
+    this.taskCount = task.incomplete().length;
+  }
+
+  goToTasks() {
+    this.navCtrl.push('tasks');
   }
 
   showSchool() {
@@ -77,5 +84,12 @@ export class StartGamePage {
         draw.image('../assets/img/roadX.png').size(100, 100).move(x,this.roadX[key]);
       }
     }
+
+    let alert = this.alertCtrl.create({
+      title: 'Welcome!',
+      message: 'Need help gettings started? Visit your tasks list in the top right corner of your screen for help.',
+      buttons: ['Dismiss']
+    });
+    alert.present();
   }
 }
