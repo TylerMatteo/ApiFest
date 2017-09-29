@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
-import { User } from '../../providers/providers';
+import { User,Stocks } from '../../providers/providers';
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -18,11 +18,13 @@ import { User } from '../../providers/providers';
 export class WelcomePage {
 
   constructor(public navCtrl: NavController,
-    public user: User,public alertCtrl: AlertController) {
-
+    public user: User,public alertCtrl: AlertController, public stocks: Stocks) {
+      this.stocks.getStocks().then(( data) => {
+        this.stockData = data;
+      });
       this.touchEnable = false;
      }
-
+stockData:any;
   name :string;
   email: string;
   touchEnable : boolean;
