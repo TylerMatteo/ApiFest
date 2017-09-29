@@ -17,46 +17,50 @@
 
   <h2>Stocks</h2>
 
-  <h3>Common Stocks</h3>
+  <h3>Game Basics</h3>
   <ion-scroll scrollX="true">
     <ion-row nowrap>
       <ion-chip>
         <ion-icon name="square-outline"></ion-icon>
-        <ion-label>Lesson 1</ion-label>
+        <ion-label>The Map</ion-label>
       </ion-chip>
       <ion-chip>
         <ion-icon name="square-outline"></ion-icon>
-        <ion-label>Lesson 2</ion-label>
+        <ion-label>Stock Exchange</ion-label>
       </ion-chip>
       <ion-chip>
         <ion-icon name="square-outline"></ion-icon>
-        <ion-label>Lesson 3</ion-label>
+        <ion-label>Bank</ion-label>
+      </ion-chip>
+      <ion-chip >
+        <ion-icon name="checkbox-outline"></ion-icon>
+        <ion-label>Town Hall</ion-label>
       </ion-chip>
       <ion-chip (click)="navCtrl.push('lesson')">
         <ion-icon name="checkbox-outline"></ion-icon>
-        <ion-label>Lesson 4</ion-label>
+        <ion-label>School</ion-label>
       </ion-chip>
     </ion-row>
   </ion-scroll>
 
-  <h3>Preferred Stocks</h3>
+  <h3>Stock Terms</h3>
   <ion-scroll scrollX="true">
     <ion-row nowrap>
       <ion-chip>
         <ion-icon name="square-outline"></ion-icon>
-        <ion-label>Lesson 1</ion-label>
+        <ion-label>Common Stock</ion-label>
       </ion-chip>
       <ion-chip>
         <ion-icon name="checkbox-outline"></ion-icon>
-        <ion-label>Lesson 2</ion-label>
+        <ion-label>Preferred Stock</ion-label>
       </ion-chip>
       <ion-chip>
         <ion-icon name="checkbox-outline"></ion-icon>
-        <ion-label>Lesson 3</ion-label>
+        <ion-label>Blue Chip Stocks</ion-label>
       </ion-chip>
-      <ion-chip>
+      <ion-chip (click)="navCtrl.push('lesson')">
         <ion-icon name="checkbox-outline"></ion-icon>
-        <ion-label>Lesson 4</ion-label>
+        <ion-label>Dividends</ion-label>
       </ion-chip>
     </ion-row>
   </ion-scroll>

@@ -38,8 +38,8 @@ export class StartGamePage {
   ionViewDidLoad() {
 
     let alert = this.alertCtrl.create({
-      title: 'Welcome!',
-      message: 'Need help gettings started? Visit your tasks list in the top right corner of your screen for help.',
+      title: 'Welcome to Nottingham!',
+      message: "In this game, you'll learn about the basics of stocks through lessons. Then, through our stocks simulator, you can apply what you've learned and see what it's like to trade stocks. To get started, click the tasks button in the upper right hand corner of your screen.",
       buttons: ['Dismiss']
     });
     alert.present();
