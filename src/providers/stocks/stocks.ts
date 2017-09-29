@@ -84,7 +84,7 @@ export class Stocks {
       let rand = Math.floor(Math.random() * 5) * 1000;
       setTimeout(() => {
         let idx = indxs[i];
-        this.stocks[idx].tickers.push( { val : this.stocks[idx].val, percent : this.stocks[idx].percent} );
+        this.stocks[idx].tickers.push( { time : new Date().getTime(), val : this.stocks[idx].val, percent : this.stocks[idx].percent} );
         var num = Math.random() ;
         num = Math.floor( num * 100 ) %2 == 0 ? -num : num;
 
