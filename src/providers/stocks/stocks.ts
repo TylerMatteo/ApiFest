@@ -3,23 +3,40 @@ import "rxjs/add/operator/toPromise";
 import "rxjs/add/operator/finally";
 
 import { Injectable } from "@angular/core";
-import { Http, RequestOptions, Headers, Jsonp } from "@angular/http";
+import { Http, RequestOptions, Headers } from "@angular/http";
 
 import { Api } from "../api/api";
 
 @Injectable()
 export class Stocks {
 
+  transactions : any = [];
+
   stocks : any = {
      Health : {
        val : 23.5,
        tickers : [],
-       percent : 6.89
+       percent : 6.89,
+       'content' : '<b>ABOUT:</b> The healthcare sector has two main industry groups:<br><ul>'+
+          '<li>Companies who manufacture healthcare equipment and supplies or provide healthcare related services. See more: This includes distributors of healthcare products, providers of basic healthcare services, and owners and operators of healthcare facilities and organizations.</li>'+
+          '<li>Companies primarily involved in the research, development, production and marketing of pharmaceuticals and biotechnology products.</li></ul>'+
+           '<b>EXAMPLES:</b><br><ul>'+
+            '<li>Pfizer (PFE) Biotechnology and Pharmaceutical Industry</li>'+
+            '<li>Merck (MRK) Pharmaceutical</li>'
      },
      Tech : {
        val : 100,
        tickers : [],
-       percent : 10.13
+       percent : 10.13,
+       content : '<b>ABOUT:</b> The information technology sector covers the following general areas:<br>'+
+        '<ul><li>Technology software & services See More: This includes companies that primarily develop software in various fields such as the internet, applications, systems, databases management and/or home entertainment, and companies that provide information technology consulting and services, as well as data processing and outsourced services </li>'+
+        '<li>Technology hardware & equipment See More: This includes manufacturers and distributors of communications equipment, computers & peripherals, electronic equipment and related instruments</li>'+
+        '<li>Semiconductors & semiconductor equipment manufacturers.</li></ul>' +
+        '<b>EXAMPLES:</b><ul>' +
+        '<li>APPLE (APPL) Electronics </li>' +
+        '<li>Symantec Corporation (SYMC) Cyber Secrutiy </li>'+
+        '<li>USA Technologies Inc (USAT) Software</li><ul>'
+
      },
      Agraculture : {
        val : 53.4,
@@ -29,7 +46,15 @@ export class Stocks {
      "Green Energy" : {
        val : 34.6,
        tickers : [],
-       percent : 9.83
+       percent : 9.83,
+       content : '<b>ABOUT:</b> The energy sector comprises companies dominated by either of the following activities: <br>'+
+        '<ul><li>The construction or provision of oil rigs, drilling equipment and other energy related service and equipment.</li>'+
+        '<li>Companies engaged in the exploration, production, marketing, refining and/or transportation of oil and gas products.</li></ul>'+
+        '<b>EXAMPLES:</b><ul>'+
+        '<li>Tidewater Inc (TDW) Energy Equipment & Services</li>'+
+        '<li>Tetra Technologies INC (TTI)  Energy Equipment & Services</li>'+
+        '<li>Delek US Holdings Inc (DK) Oil, Gas & Consumable Fuels</li>'
+
      },
      Oil : {
        val : 33,
@@ -63,7 +88,7 @@ export class Stocks {
      }
   };
   stock : any;
-  constructor(public http: Http, public api: Api, private jsonp: Jsonp) {
+  constructor(public http: Http, public api: Api) {
     let indxs = Object.keys(this.stocks);
     for( let i = 0; i < indxs.length; i++ ) {
       let idx = indxs[i];
@@ -72,6 +97,7 @@ export class Stocks {
       this.stocks[idx].percent = Number( this.stocks[idx].percent );
       this.stocks[idx].negs = 0;
       this.stocks[idx].name = idx;
+      this.stocks[idx].numOwned = 0;
     }
     this.updateStocks();
   }
@@ -108,28 +134,7 @@ export class Stocks {
           let inc = val - orig;
           this.stocks[idx].percent =(inc/orig*100);
         }
-          //down
-          // console.log( 'down')
-          // let t = orig / val as any;
-          // if( typeof t === 'string')
-          //   t = Number( t );
-          //   t = parseFloat( t ).toFixed(2);
 
-          //  this.stocks[idx].percent = this.stocks[idx].percent - t;
-        // } else {
-        //   //up
-        //   console.log( 'up')
-        //   let t = val / orig  as any;
-        //   if( typeof t === 'string')
-        //     t = Number( t );
-        //     t = parseFloat( t ).toFixed(2);
-
-        //    this.stocks[idx].percent = this.stocks[idx].percent + t;
-
-        //   //this.stocks[idx].percent = this.stocks[idx].percent + parseFloat(this.stocks[idx].val/this.stocks[idx].originalVal).toFixed(2);
-
-      // }
-        //console.log( this.stocks[idx].percent )
         this.stocks[idx].percent = parseFloat( this.stocks[idx].percent).toFixed(2);
      }, rand);
 

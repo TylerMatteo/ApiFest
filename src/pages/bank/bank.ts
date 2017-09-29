@@ -15,9 +15,19 @@ import { User } from '../../providers/providers';
 export class BankPage {
 
 
-  constructor(public navCtrl: NavController,public user: User,) { }
+  constructor(public navCtrl: NavController,public user: User,) {
+    this.options = {
+        legend : {
+          enabled : false
+        },
+          series: [{
+              name: '',
+              data: [1,2,3,4],
+          }]
+        };
+    }
 
-  ionViewDidLoad() {
-  }
+    options : any;
+
 
 }

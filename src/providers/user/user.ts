@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
 import { Api } from '../api/api';
+import { Stocks } from '../stocks/stocks';
+import moment from 'moment';
 
 /**
  * Most apps have the concept of a User. This is a simple provider
@@ -29,9 +31,17 @@ import { Api } from '../api/api';
 export class User {
   _user: any;
   _holder : any;
+  account:any;
+  portfolio : any;
+  portfolioDiff : number = 0;
+  portfolioPoints : any = {};
 
-  constructor(public http: Http, public api: Api) {
+  constructor(public http: Http, public api: Api, public stocks: Stocks) {
     this._holder = {};
+    this.account = 500.00;
+    this.portfolio = 0;
+    this.updatePortfolio();
+    setTimeout( () => {this.updatePortfolio();}, 5000);
   }
 
   /**
@@ -54,6 +64,48 @@ export class User {
       });
 
     return seq;
+  }
+
+  updatePortfolio() {
+    let
+      date = new Date(),
+      min = date.getMinutes();
+
+    let data = [];
+    let idxs = Object.keys( this.stocks.stocks );
+    for( let idx in idxs ) {
+      if( this.stocks.stocks[idxs[idx]].numOwned > 0)
+        data.push(this.stocks.stocks[ idxs[idx] ]);
+    }
+    data = data.map( (stock) => stock.numOwned * stock.val );
+    this.portfolio = 0;
+
+    data.forEach( (d) => {
+      this.portfolio += d;
+    });
+    if( !this.portfolioPoints[min] ) {
+      this.portfolioPoints[min] = { time : moment( date ).format('h:mm a'), val : this.portfolio };
+
+    }
+
+    var prev = moment(date).subtract(1, "minutes").format('mm');
+    console.log( this.portfolioPoints, prev)
+    try {
+      var orig = this.portfolioPoints[prev].val;
+      orig = Number(orig);
+      var val = this.portfolioPoints[min].val;
+      val = Number(val);
+      // if( orig > val ) {
+      //   let dec = orig - val;
+      //   this.portfolioDiff = -(dec/orig* 100);
+      // } else {
+      //   let inc = val - orig;
+      //   this.portfolioDiff =(inc/orig*100);
+      //   this.portfolioDiff = Number( this.portfolioDiff );
+      //   this.portfolioDiff = parseFloat(this.portfolioDiff + '').toFixed(2) as any;
+      // }
+    } catch(e) {}
+    setTimeout( () => {this.updatePortfolio();}, 5000);
   }
 
   loginWithVW(accountInfo: any) {

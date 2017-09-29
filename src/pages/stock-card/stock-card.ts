@@ -21,10 +21,7 @@ export class StockCardPage {
 
     ionViewDidLoad() {
        this.stock = this.stocks.stock;
-      let cat = this.getCat();
-      let data = this.getData();
-
-     this.options = {
+       this.options = {
         legend : {
           enabled : false
         },
@@ -32,7 +29,7 @@ export class StockCardPage {
           title : ''
         },
         xAxis: {
-            categories: cat
+            categories: this.getCat()
         },
         chart : {
           width: 380,
@@ -41,9 +38,46 @@ export class StockCardPage {
          title : '',
           series: [{
               name: '',
-              data: data,
+              data: this.getData(),
           }]
         };
+    }
+
+    options : any;
+
+    buy() {
+
+      let val = this.stock.val;
+      val = parseFloat(this.stock.val ).toFixed(2);
+      this.user.account = this.user.account - val as any;
+      this.stock.numOwned++;
+      this.user.account = parseFloat(this.user.account ).toFixed(2);
+       const prompt = this.alertCtrl.create({
+        title: `Buying ${this.stock.name} Stock`,
+        subTitle: `You just bought some ${this.stock.name} Stock for $${val}. Your account balance is $${this.user.account}`,
+        buttons: ['Dismiss']
+      });
+       prompt.present();
+       this.user.updatePortfolio();
+    }
+
+    sell() {
+      if( this.stock.numOwned > 0 )
+       this.stock.numOwned--;
+      let val = this.stock.val;
+      val = parseFloat(this.stock.val ).toFixed(2);
+      this.user.account = Number( this.user.account);
+      this.user.account = Number(this.user.account) + Number(val);
+      this.stocks.transactions.push( { val : val, account : this.user.account, time : new Date().getTime(), type : 's', name : this.stock.name });
+
+      this.user.account = parseFloat(this.user.account ).toFixed(2);
+       const prompt = this.alertCtrl.create({
+        title: `Selling ${this.stock.name} Stock`,
+        subTitle: `You just sold some ${this.stock.name} Stock for $${val}. Your account balance is $${this.user.account}`,
+        buttons: ['Dismiss']
+      });
+       prompt.present();
+       this.user.updatePortfolio();
     }
 
     getCat() {
@@ -85,7 +119,5 @@ export class StockCardPage {
       }
       return ret;
     }
-
-    options: Object;
 
 }
