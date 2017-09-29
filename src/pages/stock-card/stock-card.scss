@@ -1,0 +1,29 @@
+page-stock-card {
+
+  h1 {
+    padding-bottom : 0px !important;
+    margin-bottom: 0px !important;
+  }
+  h6 {
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+  }
+
+  .red {
+    color:red;
+  }
+  .green {
+    color:green;
+  }
+
+  chart > div {
+    // width: 380px !important;
+    // height: 300px !important;
+  }
+
+  .active {
+    color : $vw-orange;
+    border-bottom: $vw-orange solid 1px;
+  }
+
+}

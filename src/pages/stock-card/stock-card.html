@@ -1,0 +1,53 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{stock.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content scroll="false">
+  <div padding>
+    <h1 text-center>{{stock.val | currency : "USD" : 3}}</h1>
+    <h6 text-center block [ngClass]="{'red': stock.percent < 0, 'green': stock.percent > -1 }">({{ stock.percent}}%)</h6>
+      <div  >
+        <chart  [options]="options"></chart>
+      </div>
+
+       <ion-grid>
+          <ion-row>
+            <ion-col>
+        <a>1 yr</a>
+            </ion-col>
+          <ion-col>
+        <a>1 mo</a>
+            </ion-col>
+          <ion-col>
+        <a>1 wk</a>
+            </ion-col>
+          <ion-col>
+        <a>1 hr</a>
+            </ion-col>
+          <ion-col>
+        <a class="active">min</a>
+            </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis velit lorem. Proin elit turpis, malesuada id diam ut, consequat eleifend massa. Duis sit amet congue felis, quis vulputate velit. Etiam sed tristique enim. Pellentesque ut dictum dui, quis porta nibh. Nulla vel nibh dapibus ex ultricies accumsan. Integer convallis ex ac tincidunt fermentum. Morbi at lectus eget erat ultricies elementum et in leo. Sed a enim et tortor tincidunt commodo id eget metus. Maecenas a tempor ante. Duis eu velit id nisi fringilla semper quis in erat. Vestibulum nec quam enim. Fusce feugiat nulla id est imperdiet volutpat
+    </p>
+
+    <ion-grid>
+          <ion-row>
+            <ion-col>
+              <button ion-button color="secondary" block>Buy</button>
+            </ion-col>
+          <ion-col>
+            <button ion-button color="danger" block>Sell</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </div>
+
+ </ion-content>
