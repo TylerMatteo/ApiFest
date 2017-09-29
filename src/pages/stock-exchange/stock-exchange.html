@@ -9,7 +9,7 @@
 <ion-content scroll="false">
 
   <ion-card *ngFor="let idx of indxs">
-    <ion-card-header >
+    <ion-card-header (click)="openCard(stockData[idx])" >
       {{idx}}
       <span style="float:right">
         {{ stockData[idx].val | currency : "USD" : 3}}

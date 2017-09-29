@@ -62,7 +62,7 @@ export class Stocks {
        percent : -5
      }
   };
-
+  stock : any;
   constructor(public http: Http, public api: Api, private jsonp: Jsonp) {
     let indxs = Object.keys(this.stocks);
     for( let i = 0; i < indxs.length; i++ ) {
@@ -71,6 +71,7 @@ export class Stocks {
       this.stocks[idx].originalVal = this.stocks[idx].val;
       this.stocks[idx].percent = Number( this.stocks[idx].percent );
       this.stocks[idx].negs = 0;
+      this.stocks[idx].name = idx;
     }
     this.updateStocks();
   }
