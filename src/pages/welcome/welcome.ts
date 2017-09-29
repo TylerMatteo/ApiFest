@@ -19,9 +19,7 @@ export class WelcomePage {
 
   constructor(public navCtrl: NavController,
     public user: User,public alertCtrl: AlertController, public stocks: Stocks) {
-      this.stocks.getStocks().then(( data) => {
-        this.stockData = data;
-      });
+
       this.touchEnable = false;
      }
 stockData:any;

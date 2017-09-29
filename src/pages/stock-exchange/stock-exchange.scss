@@ -13,7 +13,13 @@ page-stock-exchange {
     from { background-position: 0 0; }
     to { background-position: 100% 0; }
   }
+  .red {
+    color:red;
+  }
 
+  .green {
+    color:green;
+  }
   .splash-info {
     position: relative;
     z-index: 2;
@@ -51,12 +57,4 @@ page-stock-exchange {
     text-align: center;
   }
 
-   .card {
-    min-height: 3em;
-    background: #f8f8f8;
-    border-radius: 5px;
-    padding: 5px;
-    white-space: normal;
-     word-wrap: break-word;
-}
 }
