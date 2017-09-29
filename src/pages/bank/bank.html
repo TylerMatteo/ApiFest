@@ -9,7 +9,7 @@
 
 <ion-content scroll="false">
  <ion-slides>
-  <ion-slide-page>
+  <ion-slide>
     <h1 padding-left text-left>Portfolio: {{user.portfolio | currency : "USD" : 3}} </h1>
     <!-- <span block *ngIf="user.portfolioDiff < 0" class="red">({{ user.portfolioDiff}}%)</span>
     <span block *ngIf="user.portfolioDiff > -1" class="green">({{ user.portfolioDiff}}%)</span> -->
@@ -36,13 +36,64 @@
 
         </ion-row>
       </ion-grid>
-  </ion-slide-page>
-  <ion-slide-page>
-    <h1>Slide 2</h1>
   </ion-slide>
-  <ion-slide-page>
-    <h1>Slide 3</h1>
-  </ion-slide-page>
+  <ion-slide>
+    <h1 padding >Portfolio: {{user.portfolio | currency : "USD" : 3}} </h1>
+
+
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              Stock
+            </ion-col>
+            <ion-col>
+              Date
+            </ion-col>
+            <ion-col>
+              Value
+            </ion-col>
+            <ion-col>
+              Buy Power
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let trans of stocks.transactions ">
+            <ion-col>
+        {{trans.name}}
+            </ion-col>
+          <ion-col>
+        {{format(trans.time)}}
+            </ion-col>
+          <ion-col>
+        ${{trans.val}}
+            </ion-col>
+          <ion-col>
+        ${{trans.account}}
+            </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+  </ion-slide>
+  <ion-slide>
+    <h1 padding >Achievements</h1>
+    <ion-grid>
+          <ion-row>
+            <ion-col>
+                <ion-icon style="font-size:2em" name="ribbon"></ion-icon><br>
+                Buy 10 stocks
+            </ion-col>
+            <ion-col>
+                <ion-icon style="font-size:2em" name="ribbon"></ion-icon><br>
+                Complete a whole course
+            </ion-col>
+            <ion-col>
+                <ion-icon style="font-size:2em" name="ribbon"></ion-icon><br>
+                Become a billionaire
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  </ion-slide>
 </ion-slides>
 
 </ion-content>

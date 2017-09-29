@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
-import { User } from '../../providers/providers';
+import { User, Stocks } from '../../providers/providers';
+
+import moment from 'moment';
 /**
  * The Welcome Page is a splash page that quickly describes the app,
  * and then directs the user to create an account or log in.
@@ -15,7 +17,7 @@ import { User } from '../../providers/providers';
 export class BankPage {
 
 
-  constructor(public navCtrl: NavController,public user: User) {
+  constructor(public navCtrl: NavController,public user: User, public stocks: Stocks) {
 
     this.updateData();
     this.data = this.getData();
@@ -49,6 +51,10 @@ export class BankPage {
       setTimeout( () => {
         this.updateData();
       }, 5000 );
+    }
+
+    format(time ){
+      return moment(time).format('L')
     }
 
     getCat() {

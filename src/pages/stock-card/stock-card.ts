@@ -17,6 +17,7 @@ export class StockCardPage {
   constructor(public navCtrl: NavController,
     public user: User,public alertCtrl: AlertController, public stocks: Stocks) {
       this.stock = this.stocks.stock;
+      this.moment = moment;
     }
 
     ionViewDidLoad() {
@@ -44,6 +45,7 @@ export class StockCardPage {
     }
 
     options : any;
+    moment:any;
 
     buy() {
 
@@ -52,6 +54,7 @@ export class StockCardPage {
       this.user.account = this.user.account - val as any;
       this.stock.numOwned++;
       this.user.account = parseFloat(this.user.account ).toFixed(2);
+      this.stocks.transactions.push( { val : val, account : this.user.account, time : new Date().getTime(), type : 'b', name : this.stock.name });
        const prompt = this.alertCtrl.create({
         title: `Buying ${this.stock.name} Stock`,
         subTitle: `You just bought some ${this.stock.name} Stock for $${val}. Your account balance is $${this.user.account}`,
