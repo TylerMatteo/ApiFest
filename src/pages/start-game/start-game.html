@@ -1,26 +1,14 @@
-<div id='drawing'>
-  <ion-fab top right #fab1>
-   <button ion-fab (click)="goToTasks()"><ion-icon name="checkmark">
-       <ion-badge id="notifications-badge" color="danger">{{taskCount}}</ion-badge>
-     </ion-icon>
-   </button>
-
- </ion-fab>
-</div>
-
-<!-- <image id="tree1" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/tree.png" width="100" height="100" x="707" y="404"></image> -->
-
-<svg class="tree1" width="100" height="100" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" >
-  <image  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/tree.png" width="100" height="100"></image>
-</svg>
-
-<svg class="tree2" width="100" height="100" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" >
-  <image  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/tree.png" width="100" height="100"></image>
-</svg>
-<svg class="tree3" width="100" height="100" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" >
-  <image  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/tree.png" width="100" height="100"></image>
-</svg>
-
-<svg (click)="showSchool()" [@myvisibility]="visibleState" class="tree4" width="100" height="100" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" >
-  <image  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/tree.png" width="100" height="100"></image>
-</svg>
+<ion-content>
+  <div>
+    <ion-fab top right #fab1>
+     <button ion-fab (click)="goToTasks()"><ion-icon name="checkmark">
+         <ion-badge id="notifications-badge" color="danger">{{taskCount}}</ion-badge>
+       </ion-icon>
+     </button>
+   </ion-fab>
+   <img class="school" width="130" height="auto" src='../assets/img/school.svg'>
+   <img class="townhall" width="130" height="auto" src='../assets/img/townHall.svg'>
+   <img class="stockexchange" width="110" height="auto" src='../assets/img/StockExchange.svg'>
+   <img class="bank" width="110" height="auto" src='../assets/img/bank.svg'>
+  </div>
+</ion-content>
