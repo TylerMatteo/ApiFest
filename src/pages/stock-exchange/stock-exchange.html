@@ -6,8 +6,8 @@
     <ion-title>
       <!-- <button ion-button icon-left clear small><ion-icon name="arrow-back"></ion-icon></button> -->
 
-       <ion-icon style="float:right" name="ios-home-outline"></ion-icon>
-       <span style="float:right;padding-right: 40%;">Stock Exchange</span>
+       <ion-icon  name="ios-home-outline"></ion-icon>
+       <span >Stock Exchange</span>
     </ion-title>
   </ion-navbar>
     </ion-title>
@@ -16,59 +16,14 @@
 
 <ion-content scroll="false">
 
-  <form (submit)="play()" >
-    <ion-list>
+  <ion-card *ngFor="let idx of indxs">
+    <ion-card-header >
+      {{idx}}
+      <span style="float:right">
+        {{ stockData[idx].val | currency : "USD" : 3}}
+        <span style="padding-left:20px" [ngClass]="{'red': stockData[idx].percent < 0, 'green': stockData[idx].percent > -1 }">{{ stockData[idx].percent}}%</span>
+      </span>
+    </ion-card-header>
+  </ion-card>
 
-      <ion-item>
-        <div class="card">
-        <span style="font-size:1em;"><b>Coffee</b></span>
-          <span style="float:right;color:green;">
-            <ion-icon name="ios-arrow-up-outline"></ion-icon> 15%
-          </span>
-          <span style="float:right;padding-right: 27px;">169.9</span>
-        </div>
-      </ion-item>
-
-      <ion-item>
-        <div class="card">
-        <span style="font-size:1em;"><b>Chocolate</b></span>
-          <span style="float:right;color:red;">
-            <ion-icon name="ios-arrow-down-outline"></ion-icon> -4%
-          </span>
-          <span style="float:right;padding-right: 27px;">200.9</span>
-        </div>
-      </ion-item>
-      <ion-item>
-        <div class="card">
-        <span style="font-size:1em;"><b>Corn</b></span>
-          <span style="float:right;color:green;">
-            <ion-icon name="ios-arrow-up-outline"></ion-icon> 15%
-          </span>
-          <span style="float:right;padding-right: 27px;">169.9</span>
-        </div>
-      </ion-item>
-      <ion-item>
-        <div class="card">
-        <span style="font-size:1em;"><b>Bananas</b></span>
-          <span style="float:right;color:red;">
-            <ion-icon name="ios-arrow-down-outline"></ion-icon> -4%
-          </span>
-          <span style="float:right;padding-right: 27px;">200.9</span>
-        </div>
-      </ion-item>
-      <ion-item>
-        <div class="card">
-        <span style="font-size:1em;"><b>Coconuts</b></span>
-          <span style="float:right;color:green;">
-            <ion-icon name="ios-arrow-up-outline"></ion-icon> 15%
-          </span>
-          <span style="float:right;padding-right: 27px;">169.9</span>
-        </div>
-      </ion-item>
-
-
-    </ion-list>
-
-
-</form>
 </ion-content>
