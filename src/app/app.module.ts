@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
+import { Task } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 
@@ -66,6 +67,7 @@ export function provideSettings(storage: Storage) {
     Api,
     Items,
     User,
+    Task,
     Camera,
     GoogleMaps,
     SplashScreen,
