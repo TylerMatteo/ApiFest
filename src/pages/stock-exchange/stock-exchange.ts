@@ -7,7 +7,7 @@ import { Stocks } from '../../providers/providers';
  * If you'd like to immediately put the user onto a login/signup page,
  * we recommend not using the Welcome page.
 */
-@IonicPage()
+@IonicPage({name: 'stock-exchange'})
 @Component({
   selector: 'page-stock-exchange',
   templateUrl: 'stock-exchange.html'
