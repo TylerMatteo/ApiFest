@@ -83,13 +83,13 @@ export class User {
     data.forEach( (d) => {
       this.portfolio += d;
     });
-    if( !this.portfolioPoints[min] ) {
+    //if( !this.portfolioPoints[min] ) {
       this.portfolioPoints[min] = { time : moment( date ).format('h:mm a'), val : this.portfolio };
 
-    }
+   // }
 
     var prev = moment(date).subtract(1, "minutes").format('mm');
-    console.log( this.portfolioPoints, prev)
+
     try {
       var orig = this.portfolioPoints[prev].val;
       orig = Number(orig);

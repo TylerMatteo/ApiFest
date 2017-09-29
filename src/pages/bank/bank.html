@@ -8,21 +8,41 @@
 
 
 <ion-content scroll="false">
-
  <ion-slides>
-  <ion-slide>
-    <h1 text-left>Portfolio: {{user.portfolio | currency : "USD" : 3}} </h1>
+  <ion-slide-page>
+    <h1 padding-left text-left>Portfolio: {{user.portfolio | currency : "USD" : 3}} </h1>
     <!-- <span block *ngIf="user.portfolioDiff < 0" class="red">({{ user.portfolioDiff}}%)</span>
     <span block *ngIf="user.portfolioDiff > -1" class="green">({{ user.portfolioDiff}}%)</span> -->
 
-    <h1 text-left>Buying Power: {{user.account | currency : "USD" : 3}}</h1>
-  </ion-slide>
-  <ion-slide>
+    <h1 padding-left text-left>Buying Power: {{user.account | currency : "USD" : 3}}</h1>
+    <chart  [options]="options"></chart>
+     <ion-grid>
+          <ion-row>
+            <ion-col>
+        <a>1 yr</a>
+            </ion-col>
+          <ion-col>
+        <a>1 mo</a>
+            </ion-col>
+          <ion-col>
+        <a>1 wk</a>
+            </ion-col>
+          <ion-col>
+        <a>1 hr</a>
+            </ion-col>
+          <ion-col>
+        <a class="active">min</a>
+            </ion-col>
+
+        </ion-row>
+      </ion-grid>
+  </ion-slide-page>
+  <ion-slide-page>
     <h1>Slide 2</h1>
   </ion-slide>
-  <ion-slide>
+  <ion-slide-page>
     <h1>Slide 3</h1>
-  </ion-slide>
+  </ion-slide-page>
 </ion-slides>
 
 </ion-content>
