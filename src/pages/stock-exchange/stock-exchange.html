@@ -1,23 +1,15 @@
-
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      <ion-navbar>
-    <ion-title>
-      <!-- <button ion-button icon-left clear small><ion-icon name="arrow-back"></ion-icon></button> -->
 
-       <ion-icon  name="ios-home-outline"></ion-icon>
-       <span >Stock Exchange</span>
-    </ion-title>
+  <ion-navbar>
+    <ion-title>Stock Exchange</ion-title>
   </ion-navbar>
-    </ion-title>
-  </ion-navbar>
+
 </ion-header>
 
 <ion-content scroll="false">
 
   <ion-card *ngFor="let idx of indxs">
-    <ion-card-header >
+    <ion-card-header (click)="openCard(stockData[idx])" >
       {{idx}}
       <span style="float:right">
         {{ stockData[idx].val | currency : "USD" : 3}}

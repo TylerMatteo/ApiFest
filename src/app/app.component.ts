@@ -46,6 +46,7 @@ export class MyApp {
      { title: 'BankPage', component: 'BankPage' },
      { title: 'StockExchangePage', component: 'StockExchangePage' },
      { title: 'TownHallPage', component: 'TownHallPage' },
+     { title: 'StockCardPage', component: 'StockCardPage' },
 
 
     { title: 'Signup', component: 'SignupPage' },

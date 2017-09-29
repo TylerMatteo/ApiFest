@@ -25,7 +25,10 @@ export class StockExchangePage {
      //  });
   }
 
-
+  openCard( stock) {
+    this.stocks.stock = stock;
+    this.navCtrl.push('StockCardPage');
+  }
 
 
   play() {
